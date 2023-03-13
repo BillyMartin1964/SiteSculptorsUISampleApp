@@ -4,11 +4,31 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
-    <Title>SS UI</Title>
-    <Description>Package of custom UI Controls</Description>
+    <Title>SS UI Control For Xamarin Forms</Title>
+    <Description>Package of One Custom UI Control - Dual Button Control</Description>
     <Copyright>2023</Copyright>
     <PackageIcon>sitesculptorslogo.png</PackageIcon>
+    <Company>Site Sculptors</Company>
+    <Authors>Billy Martin</Authors>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>Xamarin; Button; Custom Control; Custom UI;</PackageTags>
+    <PackageReleaseNotes>Added Click events for Button1 and Button2</PackageReleaseNotes>
+    <IncludeSymbols>True</IncludeSymbols>
+    <FileVersion>1.0.0.1</FileVersion>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.0.0.1</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\sitesculptorslogo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />
@@ -21,7 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="sitesculptorslogo.png">
+    <None Update="README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

@@ -9,13 +9,13 @@
             <Label HorizontalOptions="CenterAndExpand" Text="Buttons" />
 
             <siteSculptorsUi:DualButtonControl
-                Button1BackgroundColor="Red"
+                Button1BackgroundColor="Blue"
                 Button1Clicked="DualButtonControl_OnButton1Clicked"
-                Button2Clicked="DualButtonControl_OnButton2Clicked"
                 Button1Command="{Binding}"
                 Button1Text="Save Location"
                 Button1TextColor="White"
-                Button2BackgroundColor="Blue"
+                Button2BackgroundColor="Red"
+                Button2Clicked="DualButtonControl_OnButton2Clicked"
                 Button2Command="{Binding}"
                 Button2Text="Cancel"
                 Button2TextColor="White"

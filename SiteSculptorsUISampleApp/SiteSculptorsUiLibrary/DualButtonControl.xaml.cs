@@ -9,16 +9,16 @@ namespace SiteSculptorsUI
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DualButtonControl
     {
+
         public DualButtonControl()
         {
             InitializeComponent();
-      //  Button1Clicked += (_, _) => Button1Clicked?.Invoke(this, EventArgs.Empty);
         }
-
+        
         public static readonly BindableProperty ButtonHeightRequestProperty = BindableProperty.Create(
-            nameof(ButtonHeightRequest),
-            typeof(double),
-            typeof(DualButtonControl));
+                nameof(ButtonHeightRequest),
+                typeof(double),
+                typeof(DualButtonControl));
 
         public double ButtonHeightRequest
         {
@@ -97,43 +97,11 @@ namespace SiteSculptorsUI
             set => SetValue(Button1TextColorProperty, value);
         }
 
-       public event EventHandler Button1Clicked = (e, a) => Button1.Clicked?.Invoke(this, EventArgs.Empty);
-        private void Button1Clicked(object sender, EventArgs e) => Dismiss(new ChangePasswordDialogResult() { IsCanceled = true });
-
-        //public static readonly BindableProperty Button1ClickedProperty = BindableProperty.Create(nameof(Button1Clicked), typeof(Action), typeof(DualButtonControl), null);
-        //public Action Button1Clicked
-        //{
-        //    get { return (Action)GetValue(Button1ClickedProperty); }
-        //    set { SetValue(Button1ClickedProperty, value); }
-        //}
-
-        public static readonly BindableProperty Button2ClickedProperty = BindableProperty.Create(nameof(Button2Clicked), typeof(Action), typeof(DualButtonControl), null);
-        public Action Button2Clicked
+        public event EventHandler Button1Clicked;
+        private void Button1_OnClicked(object sender, EventArgs e)
         {
-            get { return (Action)GetValue(Button2ClickedProperty); }
-            set { SetValue(Button2ClickedProperty, value); }
+            Button1Clicked?.Invoke(this, e);
         }
-
-        protected override void OnBindingContextChanged()
-        {
-            base.OnBindingContextChanged();
-
-            Button1.Clicked += (sender, args) => Button1Clicked?.Invoke();
-            Button2.Clicked += (sender, args) => Button2Clicked?.Invoke();
-        }
-
-        //public static readonly BindableProperty Button1ClickedCommandProperty = BindableProperty.Create(
-        //        nameof(Button1ClickedCommand),
-        //        typeof(Command),
-        //        typeof(DualButtonControl));
-
-        //public Command Button1ClickedCommand
-        //{
-        //    get { return (Command)GetValue(Button1ClickedCommandProperty); }
-        //    set { SetValue(Button1ClickedCommandProperty, value); }
-        //}
-
-
 
         public static readonly BindableProperty Button1CommandProperty = BindableProperty.Create(
             nameof(Button1Command),
@@ -208,20 +176,13 @@ namespace SiteSculptorsUI
             get => (Color)GetValue(Button2TextColorProperty);
             set => SetValue(Button2TextColorProperty, value);
         }
-
-        //public event EventHandler? Button2Clicked;
-
-        //public static readonly BindableProperty Button2ClickedCommandProperty = BindableProperty.Create(
-        //    nameof(Button2ClickedCommand),
-        //    typeof(Command),
-        //    typeof(DualButtonControl));
-
-        //public Command Button2ClickedCommand
-        //{
-        //    get { return (Command)GetValue(Button2ClickedCommandProperty); }
-        //    set { SetValue(Button2ClickedCommandProperty, value); }
-        //}
-
+        
+        public event EventHandler Button2Clicked;
+        private void Button2_OnClicked(object sender, EventArgs e)
+        {
+            Button2Clicked?.Invoke(this, e);
+        }
+        
         public static readonly BindableProperty Button2CommandProperty = BindableProperty.Create(
             nameof(Button2Command),
             returnType: typeof(ICommand),
@@ -259,35 +220,7 @@ namespace SiteSculptorsUI
         }
 
         #endregion
-
-
-        //public static readonly BindableProperty TappedCommandProperty = BindableProperty.Create(
-        //    propertyName: nameof(TappedCommand),
-        //    returnType: typeof(Command<(bool leftPressed, bool rightPressed)>),
-        //    declaringType: typeof(Button),
-        //    defaultValue: default(Command<(bool leftPressed, bool rightPressed)>?),
-        //    defaultBindingMode: BindingMode.OneWay,
-        //    propertyChanged: (bindable, oldValue, newValue) =>
-        //    {
-        //        var typedBindable = (DualButtonControl)bindable;
-
-        //        if (newValue is Command<(bool leftPressed, bool rightPressed)> typedNewValue)
-        //        {
-        //            typedBindable.Left.TappedCommand = typedBindable.LeftTappedCommand;
-        //            typedBindable.Right.TappedCommand = typedBindable.RightTappedCommand;
-        //        }
-        //        else
-        //        {
-        //            typedBindable.Left.TappedCommand = null;
-        //            typedBindable.Right.TappedCommand = null;
-        //        }
-        //    });
-
-        //public Command<(bool leftPressed, bool rightPressed)>? TappedCommand
-        //{
-        //    get => (Command<(bool leftPressed, bool rightPressed)>?)GetValue(TappedCommandProperty);
-        //    set => SetValue(TappedCommandProperty, value);
-        //}
+        
 
         #region Frame
 
@@ -351,6 +284,6 @@ namespace SiteSculptorsUI
         }
 
         #endregion
-        
+
     }
 }

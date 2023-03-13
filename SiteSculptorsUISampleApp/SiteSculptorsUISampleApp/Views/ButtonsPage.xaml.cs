@@ -21,6 +21,7 @@ namespace SiteSculptorsUISampleApp.Views
         {
             var test = "test";
         }
+
         private void DualButtonControl_OnButton2Clicked(object sender, EventArgs e)
         {
             var test = "test";
