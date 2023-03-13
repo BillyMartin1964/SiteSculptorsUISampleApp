@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SiteSculptorsUISampleApp.Views.ButtonsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:siteSculptorsUi="clr-namespace:SiteSculptorsUI;assembly=SiteSculptorsUI">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label HorizontalOptions="CenterAndExpand" Text="Buttons" />
+
+            <siteSculptorsUi:DualButtonControl
+                Button1BackgroundColor="Red"
+                Button1Clicked="DualButtonControl_OnButton1Clicked"
+                Button2Clicked="DualButtonControl_OnButton2Clicked"
+                Button1Command="{Binding}"
+                Button1Text="Save Location"
+                Button1TextColor="White"
+                Button2BackgroundColor="Blue"
+                Button2Command="{Binding}"
+                Button2Text="Cancel"
+                Button2TextColor="White"
+                ButtonHeightRequest="40"
+                FrameCornerRadius="20"
+                FrameVerticalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Frame
+    x:Class="SiteSculptorsUI.DualButtonControl"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="dualButtonControl"
+    Padding="0"
+    BackgroundColor="Transparent"
+    BorderColor="{Binding FrameBorderColor, Source={x:Reference dualButtonControl}}"
+    CornerRadius="{Binding FrameCornerRadius, Source={x:Reference dualButtonControl}}"
+    HasShadow="{Binding FrameHasShadow, Source={x:Reference dualButtonControl}}"
+    HorizontalOptions="{Binding FrameHorizontalOptions, Source={x:Reference dualButtonControl}}"
+    IsClippedToBounds="True"
+    VerticalOptions="{Binding FrameVerticalOptions, Source={x:Reference dualButtonControl}}">
+    <Grid
+        Margin="0"
+        ColumnDefinitions="*,*"
+        HeightRequest="{Binding ButtonHeightRequest, Source={x:Reference dualButtonControl}}">
+        <Button
+            x:Name="Button1"
+            Grid.Column="0"
+            Padding="{Binding Button1Padding, Source={x:Reference dualButtonControl}}"
+            BackgroundColor="{Binding Button1BackgroundColor, Source={x:Reference dualButtonControl}}"
+            Clicked="{Binding Button1Clicked}"
+            Command="{Binding Button1Command, Source={x:Reference dualButtonControl}}"
+            FontSize="{Binding FontSize, Source={x:Reference dualButtonControl}}"
+            HorizontalOptions="FillAndExpand"
+            Text="{Binding Button1Text, Source={x:Reference dualButtonControl}}"
+            TextColor="{Binding Button1TextColor, Source={x:Reference dualButtonControl}}" />
+        <Button
+            x:Name="Button2"
+            Grid.Column="1"
+            Padding="{Binding Button2Padding, Source={x:Reference dualButtonControl}}"
+            BackgroundColor="{Binding Button2BackgroundColor, Source={x:Reference dualButtonControl}}"
+            Clicked="{Binding Button2Clicked}"
+            Command="{Binding Button2Command, Source={x:Reference dualButtonControl}}"
+            FontSize="{Binding FontSize, Source={x:Reference dualButtonControl}}"
+            HorizontalOptions="FillAndExpand"
+            Text="{Binding Button2Text, Source={x:Reference dualButtonControl}}"
+            TextColor="{Binding Button2TextColor, Source={x:Reference dualButtonControl}}" />
+    </Grid>
+</Frame>
