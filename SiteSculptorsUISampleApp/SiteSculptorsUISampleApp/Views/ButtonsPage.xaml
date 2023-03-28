@@ -1,27 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    x:Class="SiteSculptorsUISampleApp.Views.ButtonsPage"
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:siteSculptorsUi="clr-namespace:SiteSculptorsUI;assembly=SiteSculptorsUI">
+<ContentPage x:Class="SiteSculptorsUISampleApp.Views.ButtonsPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:siteSculptorsUi="clr-namespace:SiteSculptorsUI;assembly=SiteSculptorsUI"
+             xmlns:viewModels="clr-namespace:SiteSculptorsUISampleApp.ViewModels;assembly=SiteSculptorsUISampleApp">
+    <ContentPage.BindingContext>
+        <viewModels:ButtonsViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Label HorizontalOptions="CenterAndExpand" Text="Buttons" />
+            <Label HorizontalOptions="CenterAndExpand"
+                   Text="Buttons" />
 
-            <siteSculptorsUi:DualButtonControl
-                Button1BackgroundColor="Blue"
-                Button1Clicked="DualButtonControl_OnButton1Clicked"
-                Button1Command="{Binding}"
-                Button1Text="Save Location"
-                Button1TextColor="White"
-                Button2BackgroundColor="Red"
-                Button2Clicked="DualButtonControl_OnButton2Clicked"
-                Button2Command="{Binding}"
-                Button2Text="Cancel"
-                Button2TextColor="White"
-                ButtonHeightRequest="40"
-                FrameCornerRadius="20"
-                FrameVerticalOptions="CenterAndExpand" />
+            <siteSculptorsUi:DualButtonControl Button1BackgroundColor="Blue"
+                                               Button1Clicked="DualButtonControl_OnButton1Clicked"
+                                               Button1Text="Save Location"
+                                               Button1TextColor="White"
+                                               FontAttributes="Bold, Italic"
+                                               FontFamily="Times New Roman"
+                                               FontSize="20"
+                                               Button2BackgroundColor="Red"
+                                               Button2Clicked="DualButtonControl_OnButton2Clicked"
+                                               Button2Text="Cancel"
+                                               Button2TextColor="White"
+                                               ButtonHeightRequest="80"
+                                               FrameVerticalOptions="CenterAndExpand" />
+
+            <siteSculptorsUi:DualButtonControl Button1BackgroundColor="Green"
+                                               Button1Command="{Binding TestButtonCommands}"
+                                               Button1CommandParameter="Button1"
+                                               Button1Text="Save Location"
+                                               FontAttributes="Bold"
+                                               Button1TextColor="White"
+                                               Button2BackgroundColor="Yellow"
+                                               Button2Command="{Binding TestButtonCommands}"
+                                               Button2CommandParameter="Button2"
+                                               Button2Text="Cancel"
+                                               Button2TextColor="White"
+                                               FrameVerticalOptions="CenterAndExpand" />
+
+
+            <siteSculptorsUi:DualButtonControl Button1BackgroundColor="Plum"
+                                               Button1Command="{Binding TestButtonCommands}"
+                                               Button1CommandParameter="Button1"
+                                               Button1Text="Save Location"
+                                               FontAttributes="Italic"
+                                               FontFamily="Tahoma"
+                                               Button1TextColor="White"
+                                               Button2BackgroundColor="Purple"
+                                               Button2Command="{Binding TestButtonCommands}"
+                                               Button2CommandParameter="Button2"
+                                               Button2Text="Cancel"
+                                               Button2TextColor="White"
+                                               FrameVerticalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

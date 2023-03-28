@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using SiteSculptorsUISampleApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +15,7 @@ namespace SiteSculptorsUISampleApp.Views
         public ButtonsPage()
         {
             InitializeComponent();
+            
         }
 
         private void DualButtonControl_OnButton1Clicked(object sender, EventArgs e)

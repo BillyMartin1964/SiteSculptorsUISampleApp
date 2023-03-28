@@ -18,7 +18,13 @@ namespace SiteSculptorsUI
         public static readonly BindableProperty ButtonHeightRequestProperty = BindableProperty.Create(
                 nameof(ButtonHeightRequest),
                 typeof(double),
-                typeof(DualButtonControl));
+                typeof(DualButtonControl),
+                defaultValue: 40d,
+                propertyChanged: (bindable, oldValue, newValue) =>
+                {
+                    var control = (DualButtonControl)bindable;
+                    control.FrameCornerRadius = (double)newValue * 0.5;
+                });
 
         public double ButtonHeightRequest
         {
@@ -37,7 +43,7 @@ namespace SiteSculptorsUI
             get => (FontAttributes)GetValue(FontAttributesProperty);
             set => SetValue(FontAttributesProperty, value);
         }
-
+    
         public static readonly BindableProperty FontFamilyProperty = BindableProperty.Create(
             nameof(FontFamily),
             typeof(string),
@@ -59,6 +65,18 @@ namespace SiteSculptorsUI
         {
             get => (double)GetValue(FontSizeProperty);
             set => SetValue(FontSizeProperty, value);
+        }  
+        
+        public static readonly BindableProperty ButtonSpacingProperty = BindableProperty.Create(
+                nameof(ButtonSpacing),
+                typeof(double),
+                typeof(DualButtonControl),
+                defaultValue: 10d);
+
+        public double ButtonSpacing
+        {
+            get => (double)GetValue(ButtonSpacingProperty);
+            set => SetValue(ButtonSpacingProperty, value);
         }
         #region Button 1
 
@@ -113,6 +131,19 @@ namespace SiteSculptorsUI
         {
             get => (ICommand)this.GetValue(Button1CommandProperty);
             set => this.SetValue(Button1CommandProperty, value);
+        }
+
+        public static readonly BindableProperty Button1CommandParameterProperty = BindableProperty.Create(
+            propertyName: nameof(Button1CommandParameter),
+            returnType: typeof(object),
+            declaringType: typeof(DualButtonControl),
+            defaultValue: default,
+            defaultBindingMode: BindingMode.OneWay);
+
+        public object? Button1CommandParameter
+        {
+            get => (object?)GetValue(Button1CommandParameterProperty);
+            set => SetValue(Button1CommandParameterProperty, value);
         }
 
         public static readonly BindableProperty Button1EnabledProperty = BindableProperty.Create(
@@ -195,6 +226,19 @@ namespace SiteSculptorsUI
             set => this.SetValue(Button2CommandProperty, value);
         }
 
+        public static readonly BindableProperty Button2CommandParameterProperty = BindableProperty.Create(
+            propertyName: nameof(Button2CommandParameter),
+            returnType: typeof(object),
+            declaringType: typeof(DualButtonControl),
+            defaultValue: default,
+            defaultBindingMode: BindingMode.OneWay);
+
+        public object? Button2CommandParameter
+        {
+            get => (object?)GetValue(Button2CommandParameterProperty);
+            set => SetValue(Button2CommandParameterProperty, value);
+        }
+
         public static readonly BindableProperty Button2EnabledProperty = BindableProperty.Create(
             nameof(Button2Enabled),
             typeof(bool),
@@ -275,7 +319,8 @@ namespace SiteSculptorsUI
         public static readonly BindableProperty FrameCornerRadiusProperty = BindableProperty.Create(
             nameof(FrameCornerRadius),
             typeof(double),
-            typeof(DualButtonControl));
+            typeof(DualButtonControl),
+            defaultValueCreator: bindable => ((DualButtonControl)bindable).ButtonHeightRequest * 0.5);
 
         public double FrameCornerRadius
         {

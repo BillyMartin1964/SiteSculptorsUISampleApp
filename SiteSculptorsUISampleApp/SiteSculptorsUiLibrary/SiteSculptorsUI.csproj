@@ -16,7 +16,7 @@
     <IncludeSymbols>True</IncludeSymbols>
     <FileVersion>1.0.0.1</FileVersion>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.0.1</Version>
+    <Version>1.0.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
